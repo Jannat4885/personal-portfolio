@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>University Admission Form</title>
     <meta name="description" content="Online admission form for new students">
-    <meta name="author" content="Your Name">
+    <meta name="author" content="Jannatul Ferdous Riya">
     <style>
         body{
             font-family: Arial;
