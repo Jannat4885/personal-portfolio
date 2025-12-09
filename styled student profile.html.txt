@@ -1,0 +1,96 @@
+Profile HTML:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Profile</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Student Profile Page</h1>
+    </header>
+
+    <section class="profile-box">
+        <img src="student.jpg" alt="Student Photo" class="profile-img">
+        <h2 class="student-name">John Doe</h2>
+
+        <p><strong>Department:</strong> Computer Science & Engineering</p>
+        <p><strong>Student ID:</strong> 2024-001</p>
+
+        <p class="bio">
+            John is a passionate learner who enjoys coding, problem-solving,
+            and participating in robotics competitions. He loves exploring
+            new technologies and improving his skills every day.
+        </p>
+    </section>
+
+    <footer>
+        <p>© 2025 Department of CSE – Student Profile System</p>
+    </footer>
+
+</body>
+</html>
+
+
+Style CSS:
+/* General Page Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f3f3f3;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header */
+header {
+    background-color: #004c99;
+    padding: 20px;
+    text-align: center;
+    color: white;
+    margin-bottom: 20px;
+}
+
+/* Profile Box */
+.profile-box {
+    width: 50%;
+    background-color: #ffffff;
+    margin: auto;
+    padding: 20px;
+    border: 2px solid #cccccc;
+    border-radius: 10px;
+}
+
+/* Student Image Styling */
+.profile-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 15px;  /* Rounded corners */
+    display: block;
+    margin: 0 auto 15px auto;
+}
+
+/* Student Name */
+.student-name {
+    text-align: center;
+    font-size: 1.8em;
+    margin-bottom: 10px;
+}
+
+/* Bio Paragraph */
+.bio {
+    font-size: 1em;
+    margin-top: 10px;
+    line-height: 1.5em;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #004c99;
+    color: white;
+    margin-top: 20px;
+}
