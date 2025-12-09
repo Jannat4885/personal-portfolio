@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>University Admission Form</title>
+    <meta name="description" content="Online admission form for new students">
+    <meta name="author" content="Your Name">
+    <style>
+        body{
+            font-family: Arial;
+            background: #f1f1f1;
+            padding: 20px;
+        }
+        fieldset{
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #333;
+        }
+        legend{
+            font-weight: bold;
+        }
+        label{
+            display: block;
+            margin-top: 10px;
+        }
+        input, select, textarea{
+            width: 100%;
+            padding: 7px;
+            margin-top: 5px;
+        }
+        button{
+            padding: 10px 25px;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>University Admission Form</h1>
+
+<form>
+
+    <!-- Personal Information -->
+    <fieldset>
+        <legend>Personal Information</legend>
+
+        <label>Full Name:</label>
+        <input type="text" maxlength="50" required>
+
+        <label>Email:</label>
+        <input type="email" required>
+
+        <label>Date of Birth:</label>
+        <input type="date" required>
+
+        <label>Gender:</label>
+        <input type="radio" name="gender" value="male" required> Male
+        <input type="radio" name="gender" value="female"> Female
+    </fieldset>
+
+
+    <!-- Academic Information -->
+    <fieldset>
+        <legend>Academic Information</legend>
+
+        <label>Last Education Qualification:</label>
+        <input type="text" maxlength="40" required>
+
+        <label>Previous Institute:</label>
+        <input type="text" maxlength="50">
+
+        <label>Passing Year:</label>
+        <input type="number" min="2000" max="2025" required>
+
+        <label>Interests:</label>
+        <input type="checkbox"> Programming
+        <input type="checkbox"> AI
+        <input type="checkbox"> Cyber Security
+        <input type="checkbox"> Networking
+
+    </fieldset>
+
+
+    <!-- Admission Preferences -->
+    <fieldset>
+        <legend>Preferred Department</legend>
+
+        <label>Select Department:</label>
+        <select required>
+            <option value="">--Select--</option>
+            <option>Computer Science</option>
+            <option>Electrical Engineering</option>
+            <option>Business Administration</option>
+            <option>Economics</option>
+        </select>
+
+        <label>Upload SSC Transcript:</label>
+        <input type="file" required>
+
+        <label>Upload HSC Transcript:</label>
+        <input type="file" required>
+    </fieldset>
+
+    <!-- Buttons -->
+    <button type="submit">Submit</button>
+    <button type="reset">Reset</button>
+
+</form>
+
+</body>
+</html>
