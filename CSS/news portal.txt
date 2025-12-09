@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Portal Layout</title>
+
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #f2f2f2;
+        }
+
+        .section {
+            display: inline-block;   /* Align boxes horizontally */
+            vertical-align: top;     /* Align to top edge */
+            padding: 15px;
+            border: 2px solid #333;
+            margin-right: 10px;
+            box-sizing: border-box;   /* Ensures padding doesn't break width */
+        }
+
+        .sidebar {
+            width: 20%;
+            background-color: #e3f2fd;
+        }
+
+        .main-content {
+            width: 58%;              /* Adjusted so layout fits without wrapping */
+            background-color: #fff9c4;
+        }
+
+        .ads {
+            width: 20%;
+            background-color: #ffe0b2;
+            margin-right: 0;         /* Remove last margin */
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>Daily News Portal</h1>
+
+    <div class="sidebar section">
+        <h2>Categories</h2>
+        <p>• Politics</p>
+        <p>• Technology</p>
+        <p>• Sports</p>
+        <p>• Entertainment</p>
+    </div>
+
+    <div class="main-content section">
+        <h2>Top Headlines</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras at neque sed nulla luctus 
+        venenatis. Vestibulum non pretium odio. Integer sed arcu volutpat, euismod purus vel, 
+        venenatis ligula. Suspendisse potenti.</p>
+
+        <p>Aliquam erat volutpat. Ut volutpat lectus et leo fermentum, ac vulputate neque elementum. 
+        Cras maximus risus at lectus tincidunt, vitae tincidunt augue suscipit.</p>
+    </div>
+
+    <div class="ads section">
+        <h2>Advertisements</h2>
+        <p>Your Ad Here!</p>
+        <p>50% Discount Offers</p>
+        <p>Tech Gadgets Sale</p>
+    </div>
+
+</body>
+</html>

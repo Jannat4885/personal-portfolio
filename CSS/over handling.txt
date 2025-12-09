@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Overflow Handling Box</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        .box {
+            width: 300px;        /* Fixed width */
+            height: 200px;       /* Fixed height */
+            border: 2px solid #444;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+
+        /* Uncomment the overflow type you want to test */
+
+        /* overflow: visible;  
+           - Content spills outside the box freely.
+        */
+
+        /* overflow: hidden;  
+           - Extra content is cut off and not visible.
+        */
+
+        /* overflow: scroll;  
+           - Scrollbars always appear, even if not needed.
+        */
+
+        overflow: auto;  
+        /* - Scrollbars appear only when content overflows. */
+
+    </style>
+</head>
+<body>
+
+    <h1>Overflow Handling Box</h1>
+
+    <div class="box">
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse accumsan mi id orci pretium, 
+            nec fermentum sapien volutpat. Curabitur sodales, elit id sagittis vehicula, orci lorem bibendum 
+            lectus, sed imperdiet nisi justo eget sapien. Donec condimentum, lorem at iaculis elementum, 
+            odio sem feugiat enim, et mattis lorem quam in odio. Integer eget tristique justo. Nulla facilisi. 
+            Sed et tincidunt lorem. Mauris malesuada ex nec erat tristique, vitae accumsan libero aliquet. 
+            Donec vehicula tellus in lorem tempor, nec ultricies lorem hendrerit.
+        </p>
+    </div>
+
+</body>
+</html>

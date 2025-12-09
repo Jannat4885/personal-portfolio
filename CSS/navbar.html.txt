@@ -1,0 +1,48 @@
+Navigation bar HTML:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta-name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigation Bar</title>
+
+    <style>
+        /* Navigation Bar Styling */
+        nav {
+            background-color: #004d80;
+            padding: 15px;
+            width: 100%;        /* Full-width bar */
+            display: block;
+            text-align: center; /* Center all links */
+        }
+
+        nav a {
+            display: inline-block;    /* Horizontal alignment */
+            color: white;
+            text-decoration: none;    /* Remove underline */
+            margin: 0 15px;           /* Space between links */
+            padding: 10px 15px;       /* Internal spacing */
+            font-size: 18px;
+            border-radius: 5px;
+        }
+
+        /* Hover Effect */
+        nav a:hover {
+            background-color: #0066a3;
+            color: #ffebcc;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Gallery</a>
+        <a href="#">Contact</a>
+    </nav>
+
+</body>
+</html>

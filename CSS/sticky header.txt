@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Blog - Sticky Header</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+
+        /* Sticky Header */
+        header {
+            position: sticky;
+            top: 0;
+            background-color: #222;
+            color: #fff;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 3px solid #00aaff;
+            z-index: 1000;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        nav a {
+            color: #fff;
+            margin-left: 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Main Content */
+        .content {
+            padding: 20px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Tech Insights Blog</h1>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Articles</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+        </nav>
+    </header>
+
+    <div class="content">
+        <h2>Latest Article</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent consequat, lorem id ultricies 
+           imperdiet, arcu massa condimentum justo, et feugiat lorem ipsum nec sapien...</p>
+
+        <!-- Repeat paragraphs to create long scrollable content -->
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel semper velit... </p>
+        <p>Vivamus ut libero id massa dictum luctus. Integer pharetra nisi sed mi fringilla...</p>
+        <p>Suspendisse potenti. Donec interdum feugiat mi, vel faucibus tortor gravida...</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
+        <p>Praesent ultricies, nisi eu volutpat facilisis, arcu risus laoreet mi...</p>
+        <p>Cras tincidunt, erat at pellentesque convallis, urna felis dictum urna...</p>
+
+        <p>Repeat more paragraphs as needed for scrolling...</p>
+        <p>Lorem ipsum dolor sit amet...</p>
+        <p>Lorem ipsum dolor sit amet...</p>
+        <p>Lorem ipsum dolor sit amet...</p>
+        <p>Lorem ipsum dolor sit amet...</p>
+
+    </div>
+
+</body>
+</html>

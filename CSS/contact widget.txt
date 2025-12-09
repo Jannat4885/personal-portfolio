@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fixed Contact Widget</title>
+
+    <style>
+        body {
+            height: 1500px; /* Extra height to demonstrate scrolling */
+            font-family: Arial, sans-serif;
+        }
+
+        .contact-widget {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #007bff;
+            color: #fff;
+            padding: 15px 20px;
+            border-radius: 10px;
+            border: 2px solid #0056b3;
+            z-index: 9999;
+            width: 200px;
+            transition: 0.3s;
+            font-size: 14px;
+        }
+
+        .contact-widget:hover {
+            background-color: #0056b3;
+            cursor: pointer;
+        }
+
+        .contact-widget a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .contact-widget a:hover {
+            text-decoration: underline;
+        }
+    </style>
+
+</head>
+<body>
+
+    <h1>Scroll Down to See the Fixed Contact Widget</h1>
+
+    <p>
+        This is a long page to demonstrate that the contact widget stays fixed at
+        the bottom-right corner even while scrolling.
+    </p>
+
+    <!-- Contact Widget -->
+    <div class="contact-widget">
+        <strong>Contact Us</strong><br><br>
+        📞 Phone: <a href="tel:+123456789">+123 456 789</a><br>
+        ✉ Email: <a href="mailto:support@example.com">support@example.com</a>
+    </div>
+
+</body>
+</html>
