@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Form Validation</title>
+    <style>
+        body {
+            font-family: Arial;
+            margin: 30px;
+        }
+        form {
+            width: 300px;
+        }
+        .error {
+            color: red;
+            font-size: 14px;
+        }
+        #success {
+            color: green;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Student Registration Form</h2>
+
+    <form id="regForm">
+
+        <!-- Full Name -->
+        <label>Full Name:</label><br>
+        <input type="text" id="name"><br>
+        <small class="error" id="nameError"></small><br>
+
+        <!-- Email -->
+        <label>Email:</label><br>
+        <input type="text" id="email"><br>
+        <small class="error" id="emailError"></small><br>
+
+        <!-- Password -->
+        <label>Password:</label><br>
+        <input type="password" id="password"><br>
+        <small class="error" id="passError"></small><br>
+
+        <!-- Confirm Password -->
+        <label>Confirm Password:</label><br>
+        <input type="password" id="confirmPass"><br>
+        <small class="error" id="confirmError"></small><br>
+
+        <!-- Phone Number -->
+        <label>Phone Number:</label><br>
+        <input type="text" id="phone"><br>
+        <small class="error" id="phoneError"></small><br>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <p id="success"></p>
+
+<script>
+    document.getElementById("regForm").addEventListener("submit", function(event) {
+        event.preventDefault(); // stop form from submitting
+
+        // input values
+        let name = document.getElementById("name").value;
+        let email = document.getElementById("email").value;
+        let password = document.getElementById("password").value;
+        let confirmPass = document.getElementById("confirmPass").value;
+        let phone = document.getElementById("phone").value;
+
+        // error fields
+        let nameError = document.getElementById("nameError");
+        let emailError = document.getElementById("emailError");
+        let passError = document.getElementById("passError");
+        let confirmError = document.getElementById("confirmError");
+        let phoneError = document.getElementById("phoneError");
+        let success = document.getElementById("success");
+
+        // reset messages
+        nameError.innerText = "";
+        emailError.innerText = "";
+        passError.innerText = "";
+        confirmError.innerText = "";
+        phoneError.innerText = "";
+        success.innerText = "";
+
+        let valid = true;
+
+        // Full Name validation
+        if (name === "") {
+            nameError.innerText = "Full name is required.";
+            valid = false;
+        }
+
+        // Email validation
+        if (!email.includes("@") || !email.includes(".")) {
+            emailError.innerText = "Enter a valid email.";
+            valid = false;
+        }
+
+        // Password length
+        if (password.length < 6) {
+            passError.innerText = "Password must be at least 6 characters.";
+            valid = false;
+        }
+
+        // Password match check
+        if (password !== confirmPass) {
+            confirmError.innerText = "Passwords do not match.";
+            valid = false;
+        }
+
+        // Phone number digits only
+        if (isNaN(phone) || phone === "") {
+            phoneError.innerText = "Phone must contain digits only.";
+            valid = false;
+        }
+
+        // If all correct → show success message
+        if (valid) {
+            success.innerText = "Registration Successful!";
+        }
+    });
+</script>
+
+</body>
+</html>
+

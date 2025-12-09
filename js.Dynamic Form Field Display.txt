@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Registration Form</title>
+<style>
+    .error { color: red; font-size: 14px; }
+</style>
+</head>
+<body>
+
+<h2>Student Registration</h2>
+
+<form id="regForm">
+    <label>Full Name:</label><br>
+    <input type="text" id="name"><br>
+    <span class="error" id="nameError"></span><br>
+
+    <label>Email:</label><br>
+    <input type="text" id="email"><br>
+    <span class="error" id="emailError"></span><br>
+
+    <label>Password:</label><br>
+    <input type="password" id="pass"><br>
+    <span class="error" id="passError"></span><br>
+
+    <label>Confirm Password:</label><br>
+    <input type="password" id="cpass"><br>
+    <span class="error" id="cpassError"></span><br>
+
+    <label>Phone Number:</label><br>
+    <input type="text" id="phone"><br>
+    <span class="error" id="phoneError"></span><br>
+
+    <button type="submit">Submit</button>
+</form>
+
+<h3 id="successMsg" style="color:green;"></h3>
+
+<script>
+document.getElementById("regForm").addEventListener("submit", function(e){
+    e.preventDefault();
+
+    let name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+    let pass = document.getElementById("pass").value;
+    let cpass = document.getElementById("cpass").value;
+    let phone = document.getElementById("phone").value;
+
+    let valid = true;
+
+    // Clear error messages
+    document.getElementById("nameError").innerText = "";
+    document.getElementById("emailError").innerText = "";
+    document.getElementById("passError").innerText = "";
+    document.getElementById("cpassError").innerText = "";
+    document.getElementById("phoneError").innerText = "";
+
+    if(name === ""){
+        document.getElementById("nameError").innerText = "Enter your name";
+        valid = false;
+    }
+    if(email.indexOf("@") === -1 || email.indexOf(".") === -1){
+        document.getElementById("emailError").innerText = "Invalid email format";
+        valid = false;
+    }
+    if(pass.length < 6){
+        document.getElementById("passError").innerText = "Password must be at least 6 characters";
+        valid = false;
+    }
+    if(pass !== cpass){
+        document.getElementById("cpassError").innerText = "Passwords do not match";
+        valid = false;
+    }
+    if(isNaN(phone)){
+        document.getElementById("phoneError").innerText = "Phone number must be digits only";
+        valid = false;
+    }
+
+    if(valid){
+        document.getElementById("successMsg").innerText = "Registration Successful!";
+    }
+});
+</script>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Image Slider</title>
+</head>
+<body>
+
+<h2>Image Slider</h2>
+
+<img id="slider" src="" width="500" height="300"><br><br>
+
+<button onclick="prev()">Previous</button>
+<button onclick="next()">Next</button>
+
+<script>
+let images = [
+    "https://picsum.photos/id/1018/600/400",
+    "https://picsum.photos/id/1025/600/400",
+    "https://picsum.photos/id/1015/600/400"
+];
+
+let index = 0;
+document.getElementById("slider").src = images[index];
+
+function next(){
+    index++;
+    if(index >= images.length) index = 0;
+    document.getElementById("slider").src = images[index];
+}
+
+function prev(){
+    index--;
+    if(index < 0) index = images.length - 1;
+    document.getElementById("slider").src = images[index];
+}
+
+setInterval(next, 3000);
+</script>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Dark Light Mode</title>
+<style>
+    body { transition: 0.3s; }
+</style>
+</head>
+
+<body id="body">
+<button id="toggleBtn" onclick="toggleMode()">Switch to Dark Mode</button>
+
+<h2>Welcome to My Portfolio</h2>
+<p>This is some content...</p>
+
+<script>
+let dark = false;
+
+function toggleMode(){
+    if(!dark){
+        document.body.style.background = "black";
+        document.body.style.color = "white";
+        document.getElementById("toggleBtn").innerText = "Switch to Light Mode";
+        dark = true;
+    } else {
+        document.body.style.background = "white";
+        document.body.style.color = "black";
+        document.getElementById("toggleBtn").innerText = "Switch to Dark Mode";
+        dark = false;
+    }
+}
+</script>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Editable Table</title>
+</head>
+<body>
+
+<h2>Student Management</h2>
+
+Name: <input id="name"><br>
+Roll: <input id="roll"><br>
+Department: <input id="dept"><br><br>
+
+<button onclick="addStudent()">Add Student</button>
+
+<table border="1" width="400" id="studentTable">
+    <tr>
+        <th>Name</th>
+        <th>Roll</th>
+        <th>Department</th>
+        <th>Action</th>
+    </tr>
+</table>
+
+<script>
+function addStudent(){
+    let name = document.getElementById("name").value;
+    let roll = document.getElementById("roll").value;
+    let dept = document.getElementById("dept").value;
+
+    if(name === "" || roll === "" || dept === ""){
+        alert("All fields required!");
+        return;
+    }
+
+    let table = document.getElementById("studentTable");
+    let row = table.insertRow();
+
+    row.insertCell(0).innerText = name;
+    row.insertCell(1).innerText = roll;
+    row.insertCell(2).innerText = dept;
+
+    let delCell = row.insertCell(3);
+    let btn = document.createElement("button");
+    btn.innerText = "Delete";
+    btn.onclick = function(){
+        row.remove();
+    };
+    delCell.appendChild(btn);
+}
+</script>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Text Analyzer</title>
+</head>
+<body>
+
+<h2>Text Analyzer</h2>
+
+<textarea id="text" rows="6" cols="50"></textarea><br><br>
+
+<button onclick="analyze()">Analyze Text</button>
+
+<div id="result" style="margin-top:20px; padding:10px; border:1px solid black;"></div>
+
+<script>
+function analyze(){
+    let txt = document.getElementById("text").value;
+
+    if(txt.trim() === ""){
+        document.getElementById("result").innerHTML = "Please enter some text.";
+        return;
+    }
+
+    let chars = txt.length;
+    let words = txt.trim().split(/\s+/).length;
+    let reversed = txt.split("").reverse().join("");
+
+    document.getElementById("result").innerHTML =
+        "<b>Characters:</b> " + chars + "<br>" +
+        "<b>Words:</b> " + words + "<br>" +
+        "<b>Reversed Text:</b> " + reversed;
+}
+</script>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Real Time Clock</title>
+<style>
+    #clock {
+        font-size: 40px;
+        text-align: center;
+        margin-top: 50px;
+    }
+</style>
+</head>
+<body>
+
+<div id="clock"></div>
+
+<script>
+function updateClock(){
+    let now = new Date();
+    let h = now.getHours();
+    let m = now.getMinutes();
+    let s = now.getSeconds();
+    let ampm = h >= 12 ? "PM" : "AM";
+
+    h = h % 12;
+    h = h ? h : 12;
+
+    if(m < 10) m = "0" + m;
+    if(s < 10) s = "0" + s;
+
+    document.getElementById("clock").innerText = 
+        h + ":" + m + ":" + s + " " + ampm;
+}
+
+setInterval(updateClock, 1000);
+updateClock();
+</script>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Style Manipulation</title>
+</head>
+<body>
+
+<p id="text">This is a sample paragraph text.</p>
+
+<button onclick="changeBG()">Change Background</button>
+<button onclick="increaseSize()">Increase Font Size</button>
+<button onclick="centerText()">Center Text</button>
+<button onclick="resetStyle()">Reset</button>
+
+<script>
+let size = 16;
+
+function changeBG(){
+    document.getElementById("text").style.background = "yellow";
+}
+
+function increaseSize(){
+    size += 2;
+    document.getElementById("text").style.fontSize = size + "px";
+}
+
+function centerText(){
+    document.getElementById("text").style.textAlign = "center";
+}
+
+function resetStyle(){
+    size = 16;
+    let t = document.getElementById("text");
+    t.style.background = "none";
+    t.style.fontSize = "16px";
+    t.style.textAlign = "left";
+}
+</script>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Dynamic Field Display</title>
+</head>
+<body>
+
+<h2>Smart Registration Form</h2>
+
+<select id="userType" onchange="showFields()">
+    <option value="">Select User Type</option>
+    <option value="Student">Student</option>
+    <option value="Teacher">Teacher</option>
+</select><br><br>
+
+<div id="rollDiv" style="display:none;">
+    Roll Number: <input type="text"><br><br>
+</div>
+
+<div id="deptDiv" style="display:none;">
+    Department: <input type="text"><br><br>
+</div>
+
+<script>
+function showFields(){
+    let type = document.getElementById("userType").value;
+
+    if(type === "Student"){
+        document.getElementById("rollDiv").style.display = "block";
+        document.getElementById("deptDiv").style.display = "none";
+    }
+    else if(type === "Teacher"){
+        document.getElementById("deptDiv").style.display = "block";
+        document.getElementById("rollDiv").style.display = "none";
+    }
+}
+</script>
+
+</body>
+</html>
+
+
+

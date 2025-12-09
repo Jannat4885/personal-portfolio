@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Form</title>
+    <style>
+        body { font-family: Arial; margin: 20px; }
+        .error { color: red; font-size: 14px; }
+        input { margin-bottom: 5px; padding: 5px; width: 250px; }
+    </style>
+</head>
+<body>
+
+<h2>Registration Form</h2>
+
+<form id="regForm">
+    <input type="text" id="name" placeholder="Full Name"><br>
+    <span id="nameError" class="error"></span><br>
+
+    <input type="text" id="email" placeholder="Email"><br>
+    <span id="emailError" class="error"></span><br>
+
+    <input type="password" id="pass" placeholder="Password"><br>
+    <span id="passError" class="error"></span><br>
+
+    <input type="password" id="cpass" placeholder="Confirm Password"><br>
+    <span id="cpassError" class="error"></span><br>
+
+    <input type="text" id="phone" placeholder="Phone Number"><br>
+    <span id="phoneError" class="error"></span><br>
+
+    <button type="submit">Submit</button>
+</form>
+
+<h3 id="successMsg" style="color:green;"></h3>
+
+<script>
+document.getElementById("regForm").addEventListener("submit", function(e){
+    e.preventDefault();
+
+    let name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+    let pass = document.getElementById("pass").value;
+    let cpass = document.getElementById("cpass").value;
+    let phone = document.getElementById("phone").value;
+
+    let ok = true;
+
+    // Clear previous errors
+    document.getElementById("nameError").innerText = "";
+    document.getElementById("emailError").innerText = "";
+    document.getElementById("passError").innerText = "";
+    document.getElementById("cpassError").innerText = "";
+    document.getElementById("phoneError").innerText = "";
+
+    if(name === ""){
+        document.getElementById("nameError").innerText = "Name is required";
+        ok = false;
+    }
+
+    if(!email.includes("@") || !email.includes(".")){
+        document.getElementById("emailError").innerText = "Invalid email";
+        ok = false;
+    }
+
+    if(pass.length < 6){
+        document.getElementById("passError").innerText = "Password must be 6+ chars";
+        ok = false;
+    }
+
+    if(pass !== cpass){
+        document.getElementById("cpassError").innerText = "Passwords do not match";
+        ok = false;
+    }
+
+    if(isNaN(phone) || phone === ""){
+        document.getElementById("phoneError").innerText = "Phone must be digits only";
+        ok = false;
+    }
+
+    if(ok){
+        document.getElementById("successMsg").innerText = "Registration Successful!";
+    }
+});
+</script>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Slider</title>
+</head>
+<body>
+
+<h2>Image Slider</h2>
+
+<img id="slide" src="" width="500">
+
+<br><br>
+
+<button onclick="prevImg()">Previous</button>
+<button onclick="nextImg()">Next</button>
+
+<script>
+let images = [
+    "https://picsum.photos/id/1018/600/400",
+    "https://picsum.photos/id/1015/600/400",
+    "https://picsum.photos/id/1016/600/400"
+];
+
+let index = 0;
+
+document.getElementById("slide").src = images[index];
+
+function nextImg(){
+    index++;
+    if(index >= images.length) index = 0;
+    document.getElementById("slide").src = images[index];
+}
+
+function prevImg(){
+    index--;
+    if(index < 0) index = images.length - 1;
+    document.getElementById("slide").src = images[index];
+}
+
+setInterval(nextImg, 3000); // auto slide
+</script>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dark / Light Mode</title>
+    <style>
+        body { transition: 0.3s; }
+    </style>
+</head>
+<body>
+
+<h2>Dark and Light Mode Toggle</h2>
+
+<button id="toggleBtn">Switch to Dark Mode</button>
+
+<script>
+let dark = false;
+
+document.getElementById("toggleBtn").onclick = function(){
+    if(!dark){
+        document.body.style.background = "#222";
+        document.body.style.color = "white";
+        this.innerText = "Switch to Light Mode";
+        dark = true;
+    } else {
+        document.body.style.background = "white";
+        document.body.style.color = "black";
+        this.innerText = "Switch to Dark Mode";
+        dark = false;
+    }
+}
+</script>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Editable Table</title>
+</head>
+<body>
+
+<h2>Student Table</h2>
+
+<input id="sname" placeholder="Name">
+<input id="sroll" placeholder="Roll">
+<input id="sdept" placeholder="Dept">
+<button onclick="addStudent()">Add Student</button>
+
+<br><br>
+
+<table border="1" width="400">
+    <tr>
+        <th>Name</th>
+        <th>Roll</th>
+        <th>Department</th>
+        <th>Action</th>
+    </tr>
+    <tbody id="tableBody"></tbody>
+</table>
+
+<script>
+function addStudent(){
+    let name = document.getElementById("sname").value;
+    let roll = document.getElementById("sroll").value;
+    let dept = document.getElementById("sdept").value;
+
+    if(name === "" || roll === "" || dept === ""){
+        alert("All fields required");
+        return;
+    }
+
+    let row = document.createElement("tr");
+
+    row.innerHTML = `
+        <td>${name}</td>
+        <td>${roll}</td>
+        <td>${dept}</td>
+        <td><button onclick="this.parentElement.parentElement.remove()">Delete</button></td>
+    `;
+
+    document.getElementById("tableBody").appendChild(row);
+
+    document.getElementById("sname").value = "";
+    document.getElementById("sroll").value = "";
+    document.getElementById("sdept").value = "";
+}
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Text Analyzer</title>
+</head>
+<body>
+
+<h2>Text Analyzer</h2>
+
+<textarea id="text" rows="6" cols="50" placeholder="Enter text..."></textarea>
+<br><br>
+
+<button onclick="analyze()">Analyze Text</button>
+
+<div id="output" style="margin-top:20px; padding:10px; border:1px solid #444;"></div>
+
+<script>
+function analyze(){
+    let txt = document.getElementById("text").value.trim();
+
+    if(txt === ""){
+        document.getElementById("output").innerHTML = "Please enter some text.";
+        return;
+    }
+
+    let characters = txt.length;
+
+    let words = txt.split(/\s+/).filter(w => w.length > 0).length;
+
+    let reversed = txt.split("").reverse().join("");
+
+    document.getElementById("output").innerHTML = `
+        <p><b>Total Characters:</b> ${characters}</p>
+        <p><b>Total Words:</b> ${words}</p>
+        <p><b>Reversed Text:</b> ${reversed}</p>
+    `;
+}
+</script>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Clock</title>
+    <style>
+        #clock {
+            font-size: 40px;
+            text-align: center;
+            margin-top: 100px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="clock"></div>
+
+<script>
+function updateClock(){
+    let now = new Date();
+    let h = now.getHours();
+    let m = now.getMinutes();
+    let s = now.getSeconds();
+
+    let ampm = h >= 12 ? "PM" : "AM";
+    h = h % 12 || 12;
+
+    let time = `${h.toString().padStart(2,'0')}:${m.toString().padStart(2,'0')}:${s.toString().padStart(2,'0')} ${ampm}`;
+
+    document.getElementById("clock").innerText = time;
+}
+
+setInterval(updateClock, 1000);
+updateClock();
+</script>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Style Control</title>
+</head>
+<body>
+
+<p id="text">This is a sample text that users can style.</p>
+
+<button onclick="changeBg()">Change Background</button>
+<button onclick="increaseFont()">Increase Font</button>
+<button onclick="centerText()">Center Text</button>
+<button onclick="resetStyle()">Reset</button>
+
+<script>
+let size = 16;
+
+function changeBg(){
+    document.getElementById("text").style.background = "yellow";
+}
+
+function increaseFont(){
+    size += 2;
+    document.getElementById("text").style.fontSize = size + "px";
+}
+
+function centerText(){
+    document.getElementById("text").style.textAlign = "center";
+}
+
+function resetStyle(){
+    size = 16;
+    let p = document.getElementById("text");
+    p.style.fontSize = "16px";
+    p.style.textAlign = "left";
+    p.style.background = "white";
+}
+</script>
+
+</body>
+</html>
+
+
